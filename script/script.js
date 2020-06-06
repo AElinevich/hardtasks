@@ -21,3 +21,9 @@ let resultStr = resultPow.toString();
 let partOfResult = Number(resultStr[0] + resultStr[1])
 
 console.log(partOfResult);
+
+// // Упрощенное решение
+// let num = 266219;
+// let newNum = num.toString().split('');
+// let result = newNum.reduce((multiply, current) => multiply * current, 1)
+// console.log(result);
