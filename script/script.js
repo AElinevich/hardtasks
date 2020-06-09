@@ -1,29 +1,39 @@
-let num = 266219;
-let result = 1;
-let numLength = num.toString().length;
+let lang = prompt('What is your language(en/ru)?');
+let EngDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+let RuDays = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
 
+// Task 1(а)
+if (lang === 'ru') {
+    console.log(RuDays);
+} else if (lang === 'en') {
+    console.log(EngDays);
+} 
 
-for (i = 0; i < numLength; i++) {
-    let numTrunc = (Math.trunc(num / 10));
-    let numEnd = num - (numTrunc * 10);
-    num = numTrunc;
-    result *= numEnd;
-}
+// Task 1(b)
+switch (lang) {
+    case 'ru':
+    console.log(RuDays);
+    break;
+    case 'en':
+    console.log(EngDays);   
+    break;
+} 
 
-console.log(result);
+// Task 1(c)
+let allLanguages = [
+    ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
 
-let resultPow = result ** 3;
+];
+let result = 
+    (lang === 'en') ? console.log(allLanguages[0]) :
+    (lang === 'ru') ? console.log(allLanguages[1]) :
+    console.log('Wrong answer');
 
-console.log(resultPow);
+// Task 2
+let namePerson = prompt('Как тебя зовут?', '');
 
-let resultStr = resultPow.toString();
-
-let partOfResult = Number(resultStr[0] + resultStr[1])
-
-console.log(partOfResult);
-
-// // Упрощенное решение
-// let num = 266219;
-// let newNum = num.toString().split('');
-// let result = newNum.reduce((multiply, current) => multiply * current, 1)
-// console.log(result);
+let message = 
+    (namePerson === 'Артем') ? console.log('Директор') : 
+    (namePerson === 'Максим') ?  console.log('Преподаватель') :
+    console.log('Студент');
