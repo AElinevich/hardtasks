@@ -1,20 +1,30 @@
 // 1
-let arr = ['2000', '65000', '9593952', '42383859','2575849', '9383', '6423', '4354'];
+let currentDate = new Date;
+let indexCurrent = currentDate.getUTCDay();
+let week = ['Понедельник', 'Вторник', 'Среда', 'Четверг','Пятница', 'Суббота', 'Воскресенье'];
 
-for (let i = 0; i < arr.length; i++) {
-   if (arr[i][0] == 2 || arr[i][0] == 4) {
-     console.log(arr[i])
-   };
-};
 
-// 2
+week.forEach(function(item, i){
+  let list = document.createElement('div');
+ 
+    list.innerHTML =  `
+      <ul>
+        <li>${item}</li>
+     </ul>
+  `;
 
-   let x = 100;
-   
-   searcNumber:
-   for (let i = 2; i <= x; i++) {
-       for (let k = 2; k < i; k++) {
-           if(i % k == 0) continue searcNumber;
-       }
-       console.log(i + '-' + 'Делители этого числа: ' + i + ' и 1')
-   }
+  document.body.insertAdjacentElement('beforeend', list);
+
+  if(item === 'Суббота' || item === 'Воскресенье') {
+    list.style.fontStyle = "italic";
+  }
+  if(i  ===  indexCurrent + 6) {
+    list.style.fontWeight = "bold";
+
+  };
+});
+
+
+
+
+
