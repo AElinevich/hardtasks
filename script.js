@@ -9,36 +9,21 @@ let result = document.querySelector("#res");
 const calculator = {
    sum: function(){
    let resultSum = +inputA.value + +inputB.value;
-    return resultSum
+    return result.value = resultSum 
   },
 
   mult: function (){
-    return +inputA.value * +inputB.value;
-  },
-  show: function(){
-  if(this.sum) {
-    console.log(this.sum());
-      result.value = this.sum();
-     
+    let resultMult =+inputA.value * +inputB.value;
+    return result.value = resultMult 
   }
-  else if(this.mult){
-    console.log(mult);
-    result.value = this.mult();
-    
-  }
-  
-  return result.value;
-}
-  
 }
 
 btnSum.addEventListener('click', function (){
   calculator.sum();
-  calculator.show();
 })
 
 btnMult.addEventListener('click', function (){
   calculator.mult();
-  calculator.show();
+
   
 })
