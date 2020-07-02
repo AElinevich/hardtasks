@@ -1,0 +1,16 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+.btn {
+    display: flex;
+    width: 200px;
+    height: 100px;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 25%; 
+    background-color:lightpink;
+    border: none;;
+}  
