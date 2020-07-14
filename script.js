@@ -1,10 +1,11 @@
 let btnlogin =  document.querySelector('.login');
 let authorization = document.querySelector('.authorization');
 let info = document.querySelector('.info');
-let userInfo = [];
 
+let userInfo = [];
 if(localStorage.getItem('user')) {
     userInfo = JSON.parse(localStorage.getItem('user'));
+    createInfo()
 }
 function render() {
     let name  = prompt("Введи имя и фамилию");
@@ -22,7 +23,6 @@ function render() {
         }
     })
     let regDate = date.getDate() + ' '  + currentMonth + ' ' + date.getFullYear() + ' г., ' + date.getHours() + ':'  + date.getMinutes() + ':' + date.getSeconds();
-    
     let newUserInfo = 
     {
         firstName : firstName,
@@ -30,28 +30,34 @@ function render() {
         login : login,
         password : password,
         regDate : regDate,
-    }
+    }     
     userInfo.push(newUserInfo);
-
-  let list = document.createElement('ul');
-    list.innerHTML = `
-    <br>
-   <li>Имя: ${firstName}, фамилия: ${lastName}, зарегистрирован:  ${regDate}</li>
-   <button class="remove">Удалить</button>
-   `
+}
+function createInfo() {
+    userInfo.forEach((item)=> {
+     
+        let list = document.createElement('li');
+        list.innerHTML = `
+        <br>
+       Имя: ${item.firstName}, фамилия: ${item.lastName}, зарегистрирован:  ${item.regDate}
+       <button class="remove">Удалить</button>
+       `
    info.append(list);
    let btnRemove = list.querySelector('.remove');
-
-btnRemove.addEventListener('click', () =>{
-    let listItem = document.querySelector('ul');
-    listItem.parentNode.removeChild(listItem)
-    
-})
-}
+   
+   btnRemove.addEventListener('click', () =>{
+  
+        let parent = list.parentNode;
+       parent.removeChild(list);
+       localStorage.setItem('user', JSON.stringify(userInfo)); 
+       })
+    })   
+  }
 btnlogin.addEventListener('click', ()=> {
-    localStorage.setItem('user', JSON.stringify(userInfo)); 
     render()
-    
+    createInfo()
+    localStorage.setItem('user', JSON.stringify(userInfo)); 
+ 
 })
 
 function showAuthorized() {
