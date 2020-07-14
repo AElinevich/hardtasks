@@ -32,10 +32,11 @@ function render() {
         regDate : regDate,
     }     
     userInfo.push(newUserInfo);
+   
+    
 }
 function createInfo() {
     userInfo.forEach((item)=> {
-     
         let list = document.createElement('li');
         list.innerHTML = `
         <br>
@@ -48,6 +49,7 @@ function createInfo() {
    btnRemove.addEventListener('click', () =>{
   
         let parent = list.parentNode;
+        userInfo.splice(userInfo.indexOf(item), 1)
        parent.removeChild(list);
        localStorage.setItem('user', JSON.stringify(userInfo)); 
        })
