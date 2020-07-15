@@ -32,11 +32,15 @@ function render() {
         regDate : regDate,
     }     
     userInfo.push(newUserInfo);
+    localStorage.setItem('user', JSON.stringify(userInfo)); 
    
-    
+
 }
+
 function createInfo() {
+    info.textContent = "";
     userInfo.forEach((item)=> {
+        
         let list = document.createElement('li');
         list.innerHTML = `
         <br>
