@@ -1,0 +1,19 @@
+.translate {
+    display: flex;
+    flex-direction: column;
+}
+.russian {
+    display: flex;
+    width: 300px;
+    height: 150px;
+    border: 1px solid black;
+}
+.english {
+    display: flex;
+    width: 300px;
+    height: 150px;
+    border: 1px solid black;
+}
+button {
+    width: 100px;
+}
